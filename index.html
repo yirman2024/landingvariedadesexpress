@@ -1,124 +1,65 @@
-<!DOCTYPE html> <!-- Declaración del tipo de documento -->
-<html lang="es"> <!-- Definición del idioma de la página -->
-
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del sitio en español -->
 <head>
-
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4240163092972247');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4240163092972247&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  <!-- =================== META ETIQUETAS BÁSICAS =================== -->
-  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escalado responsivo -->
-  <meta name="description" content="Landing Page de calzado futurista con ofertas exclusivas. Compra tenis con descuento y recibe en tu casa."> <!-- Descripción SEO -->
-  <meta name="keywords" content="calzado, tenis, ecommerce, oferta, descuento, tienda online"> <!-- Palabras clave SEO -->
-  <meta name="author" content="Tu Marca de Calzado"> <!-- Autor de la web -->
-
-  <!-- =================== META OPEN GRAPH PARA REDES =================== -->
-  <meta property="og:title" content="🔥 Oferta en Calzado Futurista - Hasta 50% OFF por 24h">
-  <meta property="og:description" content="Compra tus tenis con descuento exclusivo. Pide fácil vía WhatsApp o formulario.">
-  <meta property="og:image" content="img/preview.jpg"> <!-- Imagen para compartir -->
-  <meta property="og:url" content="https://tusitio.com"> <!-- URL oficial -->
-  <meta property="og:type" content="website">
-
-  <!-- =================== TITULO =================== -->
-  <title>🔥 Tienda Futurista de Calzado | Hasta 50% OFF</title>
-
-  <!-- =================== CSS EXTERNO =================== -->
-  <link rel="stylesheet" href="styles.css"> <!-- Archivo principal de estilos -->
-
-  <!-- =================== FUENTES =================== -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Tipografías futuristas -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres UTF-8 para soportar acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste responsivo en dispositivos móviles -->
+    <meta name="description" content="Landing page de calzado con ofertas exclusivas, compra rápida y segura con PayU"> <!-- Descripción SEO -->
+    <meta property="og:title" content="Calzado Futurista - Descuentos Exclusivos"> <!-- Open Graph para título -->
+    <meta property="og:description" content="Compra tus tenis favoritos con hasta 50% de descuento por tiempo limitado"> <!-- Open Graph para descripción -->
+    <meta property="og:type" content="website"> <!-- Define el tipo de contenido -->
+    <meta property="og:image" content="img/tenis-oferta.jpg"> <!-- Imagen de previsualización en redes sociales -->
+    <title>Calzado Futurista | Ofertas Exclusivas</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Vincula el archivo CSS principal -->
 </head>
-
 <body>
-  <!-- =================== HERO PRINCIPAL =================== -->
-  <header class="hero"> <!-- Sección de cabecera -->
-    <div class="overlay"></div> <!-- Capa oscura con efecto futurista -->
-    <div class="hero-content"> <!-- Contenido principal del hero -->
-      <h1 class="hero-title">👟 Tenis Futuristas con <span class="neon">50% OFF</span></h1> <!-- Título llamativo -->
-      <p class="hero-subtitle">Oferta exclusiva válida por tiempo limitado. ¡Pide ya tus tenis y recibe en casa! 🚀</p> <!-- Subtítulo -->
-      <div class="countdown"> <!-- Contenedor del temporizador -->
-        <span id="days">00</span>d :
-        <span id="hours">00</span>h :
-        <span id="minutes">00</span>m :
-        <span id="seconds">00</span>s
-      </div>
-      <div class="hero-cta"> <!-- Botones de acción -->
-        <a href="https://wa.me/573216732606?text=Hola%20quiero%20comprar%20mis%20tenis%20con%20descuento" target="_blank" class="btn-whatsapp">Comprar por WhatsApp</a>
-        <a href="#formulario" class="btn-form">Comprar con Formulario</a>
-      </div>
-    </div>
-  </header>
+    <!-- Sección principal Hero -->
+    <header class="hero"> <!-- Encabezado principal con fondo de video -->
+        <video autoplay muted loop class="hero-video"> <!-- Video en loop para fondo futurista -->
+            <source src="videos/fondo-calzado.mp4" type="video/mp4"> <!-- Ruta del video -->
+        </video>
+        <div class="hero-content"> <!-- Contenedor del contenido dentro del Hero -->
+            <h1>🔥 Tenis Futuristas en Oferta</h1> <!-- Título llamativo -->
+            <p>Compra ahora con <span class="descuento">50% OFF</span> por tiempo limitado</p> <!-- Subtítulo con descuento -->
+            <div id="countdown"></div> <!-- Temporizador animado -->
+            <a href="https://wa.me/573216732606?text=Hola,%20quiero%20comprar%20mis%20tenis" class="btn-cta">Comprar por WhatsApp</a> <!-- CTA hacia WhatsApp -->
+        </div>
+    </header>
 
-  <!-- =================== SECCIÓN PRODUCTOS =================== -->
-  <section class="productos"> <!-- Sección de productos -->
-    <h2 class="section-title">🔥 Nuestros Modelos</h2> <!-- Título de sección -->
-    <div class="productos-grid"> <!-- Contenedor en grid -->
-      <!-- Producto 1 -->
-      <div class="producto-card">
-        <img src="img/tenis1.jpg" alt="Tenis modelo 1"> <!-- Imagen del producto -->
-        <h3>Tenis CyberOne</h3> <!-- Nombre del producto -->
-        <p class="precio"><span class="precio-original">$300.000</span> <span class="precio-oferta">$150.000</span></p> <!-- Precios -->
-        <a href="#formulario" class="btn-card">Comprar ahora</a> <!-- CTA -->
-      </div>
-      <!-- Producto 2 -->
-      <div class="producto-card">
-        <img src="img/tenis2.jpg" alt="Tenis modelo 2"> <!-- Imagen del producto -->
-        <h3>Tenis NeoRunner</h3>
-        <p class="precio"><span class="precio-original">$280.000</span> <span class="precio-oferta">$140.000</span></p>
-        <a href="#formulario" class="btn-card">Comprar ahora</a>
-      </div>
-      <!-- Producto 3 -->
-      <div class="producto-card">
-        <img src="img/tenis3.jpg" alt="Tenis modelo 3"> <!-- Imagen del producto -->
-        <h3>Tenis FutureLight</h3>
-        <p class="precio"><span class="precio-original">$350.000</span> <span class="precio-oferta">$175.000</span></p>
-        <a href="#formulario" class="btn-card">Comprar ahora</a>
-      </div>
-    </div>
-  </section>
+    <!-- Sección de formulario de pedido -->
+    <section class="formulario"> <!-- Sección del formulario -->
+        <h2>🛒 Realiza tu pedido</h2> <!-- Título del formulario -->
+        <form id="orderForm"> <!-- Formulario con ID para JS -->
+            <input type="text" name="nombre" placeholder="Nombre y Apellido" required> <!-- Campo nombre -->
+            <input type="text" name="ciudad" placeholder="Ciudad y Departamento" required> <!-- Campo ciudad -->
+            <input type="text" name="barrio" placeholder="Barrio" required> <!-- Campo barrio obligatorio -->
+            <input type="text" name="direccion" placeholder="Dirección completa" required> <!-- Campo dirección -->
+            <input type="tel" name="telefono" placeholder="Teléfono" required> <!-- Campo teléfono -->
+            <input type="number" name="cantidad" placeholder="Cantidad de tenis" required> <!-- Campo unidades -->
+            <input type="text" name="talla" placeholder="Talla y color" required> <!-- Campo talla/color -->
+            <button type="submit" class="btn-cta">Confirmar Pedido</button> <!-- Botón de envío -->
+        </form>
+    </section>
 
-  <!-- =================== FORMULARIO DE COMPRA =================== -->
-  <section id="formulario" class="formulario"> <!-- Sección formulario -->
-    <h2 class="section-title">📝 Ordena tus Tenis</h2> <!-- Título de sección -->
-    <form action="https://tu-procesador-de-pagos.com" method="POST" class="form"> <!-- Formulario principal -->
-      <input type="text" name="nombre" placeholder="Nombre y Apellido" required> <!-- Campo nombre -->
-      <input type="text" name="ciudad" placeholder="Ciudad y Departamento" required> <!-- Campo ciudad -->
-      <input type="text" name="barrio" placeholder="Barrio" required> <!-- Campo barrio -->
-      <input type="text" name="direccion" placeholder="Dirección completa" required> <!-- Campo dirección -->
-      <input type="tel" name="telefono" placeholder="Teléfono" required> <!-- Campo teléfono -->
-      <input type="number" name="unidades" placeholder="Cantidad de tenis" required> <!-- Campo cantidad -->
-      <input type="text" name="talla" placeholder="Talla y color" required> <!-- Campo talla y color -->
-      <button type="submit" class="btn-submit">🚀 Finalizar Compra</button> <!-- Botón enviar -->
-    </form>
-  </section>
+    <!-- Sección de oferta y precios -->
+    <section class="oferta"> <!-- Sección de oferta especial -->
+        <h2>✨ Oferta Especial</h2>
+        <p class="precio"><span class="tachado">$300.000</span> <span class="oferta">$149.900</span></p> <!-- Precio con tachado -->
+        <button class="btn-cta vibrar">Aprovechar Oferta</button> <!-- Botón con vibración -->
+    </section>
 
-  <!-- =================== FOOTER CON LEGALES =================== -->
-  <footer class="footer"> <!-- Pie de página -->
-    <p>© 2025 Tu Marca de Calzado. Todos los derechos reservados.</p>
-    <nav class="footer-links">
-      <a href="politica-privacidad.html">Política de Privacidad</a>
-      <a href="terminos-condiciones.html">Términos y Condiciones</a>
-      <a href="aviso-legal.html">Aviso Legal</a>
-      <a href="politica-reembolsos.html">Política de Reembolsos</a>
-    </nav>
-  </footer>
+    <!-- Sección de pie de página con enlaces legales -->
+    <footer>
+        <p>© 2025 Calzado Futurista. Todos los derechos reservados.</p> <!-- Derechos de autor -->
+        <nav>
+            <a href="politica-privacidad.html">Política de Privacidad</a>
+            <a href="terminos-condiciones.html">Términos y Condiciones</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
+            <a href="politica-reembolsos.html">Política de Reembolsos</a>
+        </nav>
+    </footer>
 
-  <!-- =================== SCRIPTS =================== -->
-  <script src="script.js"></script> <!-- Archivo JS principal -->
+    <!-- Scripts JS -->
+    <script src="js/gsap.min.js"></script> <!-- Librería GSAP para animaciones -->
+    <script src="js/main.js"></script> <!-- Script principal -->
 </body>
 </html>
