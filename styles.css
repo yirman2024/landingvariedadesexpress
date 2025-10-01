@@ -1,71 +1,56 @@
 /* =================== CONFIGURACIÓN GENERAL =================== */
-* { /* Reset de márgenes y paddings */
+* { /* Reset de estilos */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body { /* Estilo base del body */
-  font-family: 'Roboto', sans-serif;
-  background: #0a0a0f; /* Fondo oscuro futurista */
-  color: #fff; /* Texto blanco */
+body { /* Estilo general */
+  font-family: 'Poppins', sans-serif; /* Fuente limpia y moderna */
+  background: #f9f9f9; /* Fondo claro */
+  color: #333; /* Texto oscuro legible */
   line-height: 1.6;
-  overflow-x: hidden; /* Evita scroll horizontal */
+  overflow-x: hidden; /* Evitar scroll lateral */
 }
 
-/* =================== HERO =================== */
+/* =================== HEADER / HERO =================== */
 .hero {
-  position: relative; /* Posicionamiento relativo para overlay */
-  height: 100vh; /* Ocupa toda la pantalla */
-  background: url("../img/bg-hero.jpg") no-repeat center center/cover; /* Fondo principal */
-  display: flex; /* Flexbox para centrar */
+  position: relative;
+  height: 80vh; /* Menos que full para estilo ecommerce */
+  background: url("../img/bg-hero.jpg") no-repeat center center/cover; /* Imagen promocional */
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.overlay { /* Capa de oscurecimiento futurista */
+.overlay { /* Capa transparente */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 15, 0.8); /* Oscurecimiento */
-  backdrop-filter: blur(2px); /* Efecto blur futurista */
+  background: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
 }
 
-.hero-content { /* Contenido principal del hero */
-  position: relative; /* Encima del overlay */
+.hero-content {
+  position: relative;
   z-index: 2;
   max-width: 800px;
   padding: 20px;
+  color: #fff;
 }
 
-.hero-title { /* Título principal */
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
+.hero-title { /* Título de bienvenida */
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.neon { /* Texto con efecto neón */
-  color: #00ffe7;
-  text-shadow: 0 0 5px #00ffe7, 0 0 15px #00ffe7, 0 0 30px #00ffe7;
+  font-weight: 700;
 }
 
 .hero-subtitle { /* Subtítulo */
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #ccc;
-}
-
-/* =================== COUNTDOWN =================== */
-.countdown {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #ff0077;
-  text-shadow: 0 0 10px #ff0077;
+  font-weight: 400;
 }
 
 /* =================== BOTONES CTA =================== */
@@ -75,8 +60,8 @@ body { /* Estilo base del body */
   padding: 15px 25px;
   margin: 10px;
   border: none;
-  border-radius: 50px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
@@ -86,53 +71,59 @@ body { /* Estilo base del body */
 .btn-whatsapp {
   background: #25D366; /* Verde WhatsApp */
   color: #fff;
-  box-shadow: 0 0 10px #25D366, 0 0 20px #25D366;
 }
 
 .btn-form {
-  background: #ff0077; /* Rosa neón */
+  background: #007bff; /* Azul ecommerce */
   color: #fff;
-  box-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077;
 }
 
 .btn-whatsapp:hover,
 .btn-form:hover {
-  transform: scale(1.05); /* Aumenta tamaño */
-  box-shadow: 0 0 20px #fff, 0 0 40px currentColor; /* Glow más intenso */
+  opacity: 0.9;
+  transform: translateY(-3px); /* Ligeramente hacia arriba */
+}
+
+/* =================== COUNTDOWN =================== */
+.countdown {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #ff4444;
 }
 
 /* =================== SECCIÓN PRODUCTOS =================== */
 .productos {
-  padding: 80px 20px;
-  background: #111;
+  padding: 60px 20px;
+  background: #fff;
   text-align: center;
 }
 
 .section-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #00ffe7;
-  text-shadow: 0 0 10px #00ffe7;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #333;
 }
 
 .productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive */
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño responsive */
+  gap: 25px;
 }
 
 .producto-card {
-  background: #1a1a1f;
+  background: #fff;
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 231, 0.2);
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producto-card:hover {
-  transform: translateY(-10px) scale(1.05); /* Efecto hover 3D */
-  box-shadow: 0 0 20px #ff0077, 0 0 40px #00ffe7;
+  transform: translateY(-8px); /* Efecto flotante */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .producto-card img {
@@ -143,42 +134,39 @@ body { /* Estilo base del body */
 
 .precio {
   font-size: 1.2rem;
-  margin: 15px 0;
+  margin: 10px 0 15px;
 }
 
 .precio-original {
   text-decoration: line-through;
   color: #999;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .precio-oferta {
-  color: #ff0077;
+  color: #28a745; /* Verde ecommerce */
   font-weight: bold;
-  text-shadow: 0 0 10px #ff0077;
 }
 
 .btn-card {
   display: inline-block;
-  background: #00ffe7;
-  color: #111;
+  background: #28a745; /* Verde compra */
+  color: #fff;
   padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .btn-card:hover {
-  background: #ff0077;
-  color: #fff;
-  box-shadow: 0 0 15px #ff0077;
+  background: #218838;
 }
 
 /* =================== FORMULARIO =================== */
 .formulario {
-  padding: 80px 20px;
-  background: #0a0a0f;
+  padding: 60px 20px;
+  background: #f4f4f4;
   text-align: center;
 }
 
@@ -192,40 +180,41 @@ body { /* Estilo base del body */
 
 .form input {
   padding: 15px;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  background: #1a1a1f;
-  color: #fff;
+  background: #fff;
   font-size: 1rem;
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 255, 231, 0.3);
+  transition: border 0.3s;
+}
+
+.form input:focus {
+  border-color: #007bff; /* Resalta campo activo */
 }
 
 .btn-submit {
   padding: 15px;
-  background: #ff0077;
+  background: #007bff;
   border: none;
   border-radius: 8px;
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  box-shadow: 0 0 15px #ff0077;
 }
 
 .btn-submit:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #ff0077;
+  background: #0056b3;
 }
 
 /* =================== FOOTER =================== */
 .footer {
-  background: #111;
+  background: #222;
   padding: 20px;
   text-align: center;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #ccc;
 }
 
 .footer-links {
@@ -233,25 +222,25 @@ body { /* Estilo base del body */
 }
 
 .footer-links a {
-  color: #00ffe7;
+  color: #007bff;
   margin: 0 10px;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .footer-links a:hover {
-  color: #ff0077;
+  color: #28a745;
 }
 
 /* =================== RESPONSIVE =================== */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .hero-subtitle {
     font-size: 1rem;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
