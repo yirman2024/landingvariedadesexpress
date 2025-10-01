@@ -1,246 +1,173 @@
-/* =================== CONFIGURACIÓN GENERAL =================== */
-* { /* Reset de estilos */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+```css
+/* ======================== */
+/* Estilos globales */
+/* ======================== */
+* { /* Reseteo básico */
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina padding */
+  box-sizing: border-box; /* Incluye bordes en el cálculo de ancho/alto */
 }
 
-body { /* Estilo general */
-  font-family: 'Poppins', sans-serif; /* Fuente limpia y moderna */
-  background: #f9f9f9; /* Fondo claro */
-  color: #333; /* Texto oscuro legible */
-  line-height: 1.6;
-  overflow-x: hidden; /* Evitar scroll lateral */
+body { /* Cuerpo de la página */
+  font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+  background: #0d0d0d; /* Fondo oscuro */
+  color: #fff; /* Texto en blanco */
+  line-height: 1.6; /* Mejor legibilidad */
+  overflow-x: hidden; /* Evita scroll lateral */
 }
 
-/* =================== HEADER / HERO =================== */
-.hero {
-  position: relative;
-  height: 80vh; /* Menos que full para estilo ecommerce */
-  background: url("../img/bg-hero.jpg") no-repeat center center/cover; /* Imagen promocional */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+h1, h2, h3 { /* Encabezados */
+  font-weight: 700; /* Negrita */
+  margin-bottom: 1rem; /* Espaciado inferior */
 }
 
-.overlay { /* Capa transparente */
-  position: absolute;
+p { /* Párrafos */
+  margin-bottom: 1rem; /* Espaciado */
+}
+
+/* ======================== */
+/* Hero Section */
+/* ======================== */
+.hero { /* Contenedor principal del Hero */
+  position: relative; /* Necesario para overlay */
+  height: 100vh; /* Ocupa toda la pantalla */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  text-align: center; /* Texto centrado */
+  color: #fff; /* Texto blanco */
+  overflow: hidden; /* Oculta desbordes */
+}
+
+.hero-video { /* Video de fondo */
+  position: absolute; /* Ocupa toda la sección */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
+  width: 100%; /* 100% ancho */
+  height: 100%; /* 100% alto */
+  object-fit: cover; /* Se adapta al contenedor */
+  z-index: -1; /* Detrás del contenido */
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 20px;
-  color: #fff;
+.hero-content h1 { /* Título principal */
+  font-size: 3rem; /* Tamaño grande */
+  text-transform: uppercase; /* Mayúsculas */
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; /* Efecto neón */
 }
 
-.hero-title { /* Título de bienvenida */
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 700;
+.hero-content p { /* Subtítulo */
+  font-size: 1.3rem; /* Tamaño medio */
 }
 
-.hero-subtitle { /* Subtítulo */
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  font-weight: 400;
+.descuento { /* Clase para el % de descuento */
+  color: #ff0077; /* Rosa neón */
+  font-weight: bold; /* Negrita */
 }
 
-/* =================== BOTONES CTA =================== */
-.btn-whatsapp,
-.btn-form {
-  display: inline-block;
-  padding: 15px 25px;
-  margin: 10px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
+/* ======================== */
+/* Botones CTA */
+/* ======================== */
+.btn-cta { /* Botón principal */
+  display: inline-block; /* Ajusta al contenido */
+  background: linear-gradient(45deg, #ff0077, #00f0ff); /* Gradiente neón */
+  color: #fff; /* Texto blanco */
+  padding: 15px 30px; /* Espaciado interno */
+  border-radius: 50px; /* Bordes redondeados */
+  font-size: 1.2rem; /* Tamaño texto */
+  font-weight: bold; /* Texto fuerte */
+  text-decoration: none; /* Sin subrayado */
+  transition: all 0.3s ease; /* Suavidad al hover */
+  box-shadow: 0 0 15px rgba(255, 0, 119, 0.6); /* Brillo */
 }
 
-.btn-whatsapp {
-  background: #25D366; /* Verde WhatsApp */
-  color: #fff;
+.btn-cta:hover { /* Efecto hover */
+  transform: scale(1.05); /* Aumenta tamaño */
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.8); /* Brillo más fuerte */
 }
 
-.btn-form {
-  background: #007bff; /* Azul ecommerce */
-  color: #fff;
+.vibrar { /* Animación vibrar */
+  animation: vibrar 1s infinite; /* Aplica animación */
 }
 
-.btn-whatsapp:hover,
-.btn-form:hover {
-  opacity: 0.9;
-  transform: translateY(-3px); /* Ligeramente hacia arriba */
+@keyframes vibrar { /* Definición animación */
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
 }
 
-/* =================== COUNTDOWN =================== */
-.countdown {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-  color: #ff4444;
+/* ======================== */
+/* Formulario de pedido */
+/* ======================== */
+.formulario { /* Sección formulario */
+  padding: 50px 20px; /* Espaciado */
+  background: #111; /* Fondo oscuro */
+  text-align: center; /* Centrado */
 }
 
-/* =================== SECCIÓN PRODUCTOS =================== */
-.productos {
-  padding: 60px 20px;
-  background: #fff;
-  text-align: center;
-}
-
-.section-title {
+.formulario h2 { /* Título formulario */
   font-size: 2rem;
-  margin-bottom: 40px;
-  font-weight: 700;
-  color: #333;
+  margin-bottom: 20px;
 }
 
-.productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño responsive */
-  gap: 25px;
+form input, form button { /* Campos formulario */
+  width: 100%; /* Ocupan todo el ancho */
+  padding: 12px; /* Espaciado */
+  margin: 10px 0; /* Margen entre campos */
+  border-radius: 8px; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  font-size: 1rem; /* Tamaño texto */
 }
 
-.producto-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+form input { /* Campos input */
+  background: #222; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
 }
 
-.producto-card:hover {
-  transform: translateY(-8px); /* Efecto flotante */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+/* ======================== */
+/* Oferta especial */
+/* ======================== */
+.oferta { /* Sección de oferta */
+  padding: 40px 20px;
+  background: #0f0f0f;
+  text-align: center;
 }
 
-.producto-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+.oferta .precio { /* Precio */
+  font-size: 1.8rem;
+  margin: 15px 0;
 }
 
-.precio {
-  font-size: 1.2rem;
-  margin: 10px 0 15px;
+.tachado { /* Precio anterior */
+  text-decoration: line-through; /* Tachado */
+  color: #888; /* Gris */
+  margin-right: 10px;
 }
 
-.precio-original {
-  text-decoration: line-through;
-  color: #999;
-  margin-right: 8px;
-}
-
-.precio-oferta {
-  color: #28a745; /* Verde ecommerce */
+.oferta .oferta { /* Precio con oferta */
+  color: #00f0ff; /* Azul neón */
   font-weight: bold;
+  font-size: 2rem;
 }
 
-.btn-card {
-  display: inline-block;
-  background: #28a745; /* Verde compra */
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s;
+/* ======================== */
+/* Footer */
+/* ======================== */
+footer { /* Pie de página */
+  background: #111; /* Fondo oscuro */
+  padding: 20px; /* Espaciado */
+  text-align: center; /* Centrado */
+  font-size: 0.9rem; /* Texto pequeño */
 }
 
-.btn-card:hover {
-  background: #218838;
+footer nav a { /* Links del footer */
+  margin: 0 10px; /* Espaciado lateral */
+  color: #00f0ff; /* Azul neón */
+  text-decoration: none; /* Sin subrayado */
 }
 
-/* =================== FORMULARIO =================== */
-.formulario {
-  padding: 60px 20px;
-  background: #f4f4f4;
-  text-align: center;
+footer nav a:hover { /* Hover links */
+  text-decoration: underline; /* Subrayado */
 }
-
-.form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form input {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  font-size: 1rem;
-  outline: none;
-  transition: border 0.3s;
-}
-
-.form input:focus {
-  border-color: #007bff; /* Resalta campo activo */
-}
-
-.btn-submit {
-  padding: 15px;
-  background: #007bff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-.btn-submit:hover {
-  background: #0056b3;
-}
-
-/* =================== FOOTER =================== */
-.footer {
-  background: #222;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-.footer-links {
-  margin-top: 10px;
-}
-
-.footer-links a {
-  color: #007bff;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-links a:hover {
-  color: #28a745;
-}
-
-/* =================== RESPONSIVE =================== */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  .section-title {
-    font-size: 1.6rem;
-  }
-}
+```
